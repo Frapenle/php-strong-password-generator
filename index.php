@@ -12,12 +12,15 @@
 
 <body>
     <?php
+    //controllo se l'input è dichiarato ed è diverso da null con isset
     if (isset($_GET['password-length'])) {
+        //aggiungo un ulteriore controllo per determinare che la pass sia lunga min 6 e max 20 caratteri
         if ($_GET['password-length'] > 5 && $_GET['password-length'] < 21) {
             $password_length = $_GET['password-length'];
         }
     };
 
+    //funzione per generare una password random
     function generatePassword($length_pass)
     {
         $uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -26,11 +29,12 @@
         $symbols = "!@#$%^&*()_+-=[]{}|;':\"<>,.?/\\";
         $all_params = $uppercase . $lowercase . $numbers . $symbols;
         $password = "";
+        //ciclo for per prendere almeno un carattere da ogni parametro
         for ($i = 0; $i < $length_pass; $i++) {
             $random = rand(0, strlen($all_params) - 1);
             $password .= $all_params[$random];
         }
-        return "<p>{$password}</p>";
+        return $password;
     }
     ?>
     <div class="container">
@@ -42,7 +46,9 @@
             </div>
         </form>
 
-        <p><?php echo generatePassword($password_length) ?></p>
+        <p><?php $temp = generatePassword($password_length);
+            // Converto i caratteri speciali in HTML entities per evitare problemi di visualizzazione in HTML
+            echo htmlspecialchars($temp); ?></p>
     </div>
 
 </body>
