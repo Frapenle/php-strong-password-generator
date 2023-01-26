@@ -18,6 +18,20 @@
         }
     };
 
+    function generatePassword($length_pass)
+    {
+        $uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        $lowercase = "abcdefghijklmnopqrstuvwxyz";
+        $numbers = "0123456789";
+        $symbols = "!@#$%^&*()_+-=[]{}|;':\"<>,.?/\\";
+        $all_params = $uppercase . $lowercase . $numbers . $symbols;
+        $password = "";
+        for ($i = 0; $i < $length_pass; $i++) {
+            $random = rand(0, strlen($all_params) - 1);
+            $password .= $all_params[$random];
+        }
+        return "<p>{$password}</p>";
+    }
     ?>
     <div class="container">
         <form action="./index.php" method="GET">
@@ -26,10 +40,9 @@
                 <input type="text" class="form-control" name="password-length" id="password-length" placeholder="Inserisci un numero da 6 a 20" min="6" max="20">
                 <button type="submit">Invia</button>
             </div>
-            <?php
-
-            ?>
         </form>
+
+        <p><?php echo generatePassword($password_length) ?></p>
     </div>
 
 </body>
