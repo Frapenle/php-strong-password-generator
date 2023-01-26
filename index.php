@@ -25,12 +25,12 @@ if (isset($_GET['password-length'])) {
 
 <body>
     <div class="container">
-        <form action="./index.php" method="GET">
-            <div class="mb-3 w-50">
+        <form action="./index.php" method="GET" class="d-flex align-items-end mb-3">
+            <div class="w-50">
                 <label for="password-length" class="form-label">Scegli la lunghezza della password</label>
                 <input type="text" class="form-control" name="password-length" id="password-length" placeholder="Inserisci un numero da 6 a 20" min="6" max="20">
-                <button type="submit">Invia</button>
             </div>
+            <button class="btn btn-success ms-2" type="submit">Invia</button>
         </form>
 
         <p><?php $temp = generatePassword($password_length);
