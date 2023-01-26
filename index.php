@@ -11,15 +11,24 @@
 </head>
 
 <body>
+    <?php
+    $password_length = isset($_GET['password-length']) ? $_GET['password-length'] : 'Nessun valore inserito';
 
+    ?>
     <div class="container">
         <form action="./index.php" method="GET">
             <div class="mb-3 w-50">
                 <label for="password-length" class="form-label">Scegli la lunghezza della password</label>
-                <input type="number" class="form-control" id="password-length" placeholder="Inserisci un numero da 6 a 20">
+                <input type="text" class="form-control" name="password-length" id="password-length" placeholder="Inserisci un numero da 6 a 20">
+                <button type="submit">Invia</button>
             </div>
+            <?php
+            var_dump($password_length);
+
+            ?>
         </form>
     </div>
+
 </body>
 
 </html>
