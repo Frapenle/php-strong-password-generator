@@ -12,18 +12,21 @@
 
 <body>
     <?php
-    $password_length = isset($_GET['password-length']) ? $_GET['password-length'] : 'Nessun valore inserito';
+    if (isset($_GET['password-length'])) {
+        if ($_GET['password-length'] > 5 && $_GET['password-length'] < 21) {
+            $password_length = $_GET['password-length'];
+        }
+    };
 
     ?>
     <div class="container">
         <form action="./index.php" method="GET">
             <div class="mb-3 w-50">
                 <label for="password-length" class="form-label">Scegli la lunghezza della password</label>
-                <input type="text" class="form-control" name="password-length" id="password-length" placeholder="Inserisci un numero da 6 a 20">
+                <input type="text" class="form-control" name="password-length" id="password-length" placeholder="Inserisci un numero da 6 a 20" min="6" max="20">
                 <button type="submit">Invia</button>
             </div>
             <?php
-            var_dump($password_length);
 
             ?>
         </form>
