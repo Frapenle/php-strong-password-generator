@@ -1,3 +1,16 @@
+<?php
+session_start();
+include_once $path = __DIR__ . '/partials/functions.php';
+
+//controllo se l'input è dichiarato ed è diverso da null con isset
+if (isset($_GET['password-length'])) {
+    //aggiungo un ulteriore controllo per determinare che la pass sia lunga min 6 e max 20 caratteri
+    if ($_GET['password-length'] > 5 && $_GET['password-length'] < 21) {
+        $password_length = trim($_GET['password-length']);
+    }
+};
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,32 +24,6 @@
 </head>
 
 <body>
-    <?php
-    //controllo se l'input è dichiarato ed è diverso da null con isset
-    if (isset($_GET['password-length'])) {
-        //aggiungo un ulteriore controllo per determinare che la pass sia lunga min 6 e max 20 caratteri
-        if ($_GET['password-length'] > 5 && $_GET['password-length'] < 21) {
-            $password_length = $_GET['password-length'];
-        }
-    };
-
-    //funzione per generare una password random
-    function generatePassword($length_pass)
-    {
-        $uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        $lowercase = "abcdefghijklmnopqrstuvwxyz";
-        $numbers = "0123456789";
-        $symbols = "!@#$%^&*()_+-=[]{}|;':\"<>,.?/\\";
-        $all_params = $uppercase . $lowercase . $numbers . $symbols;
-        $password = "";
-        //ciclo for per prendere almeno un carattere da ogni parametro
-        for ($i = 0; $i < $length_pass; $i++) {
-            $random = rand(0, strlen($all_params) - 1);
-            $password .= $all_params[$random];
-        }
-        return $password;
-    }
-    ?>
     <div class="container">
         <form action="./index.php" method="GET">
             <div class="mb-3 w-50">
