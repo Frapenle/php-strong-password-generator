@@ -9,6 +9,9 @@ function generatePassword($length_pass, $check_uppercase, $check_lowercase, $che
     $symbols = "!@#$%^&*()_+-=[]{}|;':\"<>,.?/\\";
     //Aggiungo una variabile per i parametri selezionati
     $selected_params = "";
+    if (!$check_uppercase && !$check_lowercase && !$check_numbers && !$check_symbols) {
+        $check_uppercase = $check_lowercase = $check_numbers = $check_symbols = true;
+    }
     if ($check_uppercase) {
         $selected_params .= $uppercase;
     }
