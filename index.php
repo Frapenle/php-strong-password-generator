@@ -38,7 +38,7 @@ if (isset($_GET['password-length'])) {
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-8">
-                <form action="./index.php" method="GET" class="d-flex mb-1 justify-content-between">
+                <form action="./index.php" method="GET" class="d-flex box mb-1 justify-content-between">
                     <div class="form-wrapper ">
                         <div class="w-100">
                             <label for="password-length" class="form-label">Scegli la lunghezza della password</label>
