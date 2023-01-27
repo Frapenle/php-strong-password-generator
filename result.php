@@ -3,6 +3,7 @@ session_start();
 
 ?>
 
+</html>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,16 +14,24 @@ session_start();
     <title>Password</title>
     <!-- Bootstrap CDN 5.3.0 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
+    <header class="mb-3">
+        <h1 class="text-center">Password generata</h1>
+    </header>
     <div class="container">
-        <p>
-            <?php echo htmlspecialchars($_SESSION['password']); ?>
-        </p>
-
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <div class="box justify-content-center align-items-center">
+                    <p class="text-center fs-2">
+                        <?php echo htmlspecialchars($_SESSION['password']); ?>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-
 </body>
 
 </html>
