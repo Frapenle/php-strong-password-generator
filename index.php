@@ -43,6 +43,7 @@ if (isset($_GET['password-length'])) {
                         <div class="w-100">
                             <label for="password-length" class="form-label">Scegli la lunghezza della password</label>
                             <input type="text" class="form-control" name="password-length" id="password-length" placeholder="Inserisci un numero da 6 a 20" min="6" max="20">
+                            <p class="my-info">Se non viene selezionato nessun campo viene generata una password casuale</p>
                             <div class="checkbox mt-1">
                                 <input class="form-check-input" type="checkbox" value="" id="uppercase-check" name="uppercase-check">
                                 <label class="form-check-label me-4" for="uppercase-check">Uppercase</label>
@@ -57,6 +58,7 @@ if (isset($_GET['password-length'])) {
                     </div>
                     <button class="btn btn-success w-25 ms-2" type="submit">Invia</button>
                 </form>
+
 
             </div>
         </div>
